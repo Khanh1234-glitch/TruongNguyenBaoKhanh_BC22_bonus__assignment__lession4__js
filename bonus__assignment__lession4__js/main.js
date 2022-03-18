@@ -75,61 +75,7 @@ document.getElementById("btn__Count").onclick = function() {
         document.getElementById("footer__Count").innerHTML = cout;
 
     }
-    //part 2 of lession 1
-    /**Làm giống phần 1 bài 1 chỉ đổi dấu trừ */
-document.getElementById("btn__Countyesterday").onclick = function() {
-        var day = document.getElementById("txtDayyesterday").value * 1;
-        var month = document.getElementById("txtMonthyesterday").value * 1;
-        var year = document.getElementById("txtYearyesterday").value * 1;
-        var dayminus = day - 1;
-        var monthminus = month - 1;
-        var yearminus = year - 1;
 
-        switch (month) {
-            case 2:
-                if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-                    if (day <= 28) {
-                        var cout = " yesterday " + dayminus + " month " + month + " year " + year;
-                    } else {
-                        cout = " yesterday " + 1 + " month " + monthminus + " year " + year;
-                    }
-                } else {
-                    if (day <= 27) {
-                        cout = " yesterday " + dayminus + " month " + month + " year " + year;
-                    } else {
-                        cout = " yesterday " + 1 + " month " + monthminus + " year " + year;
-                    }
-                }
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                if (day <= 29) {
-                    cout = " yesterday " + dayminus + " month " + month + " year " + year;
-                } else {
-                    cout = " yesterday " + 1 + " month " + monthminus + " year " + year;
-                }
-                break;
-            case 12:
-                if (day <= 29) {
-                    cout = " yesterday " + dayminus + " month " + month + " year " + year;
-                } else {
-                    cout = " yesterday " + 1 + " month " + 1 + " year " + yearminus;
-                }
-                break;
-            default:
-                if (day <= 30) {
-                    cout = " yesterday " + dayminus + " month " + month + " year " + year;
-                } else {
-                    cout = " yesterday " + 1 + " month " + monthminus + " year " + year;
-                }
-                break;
-        }
-
-        document.getElementById("footer__Countyesterday").innerHTML = cout;
-
-    }
     // Lession 2
     /**
      * Đầu vào:
