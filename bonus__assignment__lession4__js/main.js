@@ -255,53 +255,45 @@ document.getElementById("btn__Read").onclick = function() {
 }
 
 //lession 4
-/**
- * Đầu vào :
- * Tạo 3 biến chứa tên sinh viên
- * tạo 4 biến tọa độ lần lượt cho 3 sinh viên và trường học
- * tạo các biến  của tọa độ gồm x, y lần lượt cho từng biến
+/**Đầu vào 
+ * Tạo các biến x, y để tính toán tọa độ cho dễ
+ * Tạo cho tọa độ trường đầu tiên cho dễ nhìn 
+ * vì tọa độ trường là trung tâm
  * Xử lý:
- * Ta có công thức tính tọa độ:
- * A=căn alpha - a mũ 2 + beta -b mũ 2
- * ta áp dụng công thức tính lần lượt tọa độ của các sinh viên
- * và trường học
- * Lấy điểm xuất phát là trường học nên tọa độ trường =0
- * Sinh viên nào có số càng lớn sẽ càng xa trường
+ * Sử dụng công thức khoảng cách giữa 2 điểm
+ * cho tọa độ của cả 3 sinh viên
+ * còn tọa độ của trường là dùng trong công thức khoảng cách 2 điểm
+ * để chút so sánh xem nào lớn nhất thì in ra
+ * sử dụng if else để so sánh
+ * số của đứa nào lớn nhất là đứa đó xa nhất
+ * Math.sqrt là căn bậc 
+ * Math.pow là mũ 
  * Đầu ra:
- * Xuất ra tọa độ của trường
- * tọa độ nhà của các sinh viên
- * Sinh viên nào xa trường nhất
+ * In ra sinh viên xa trường nhất
+ * không biết đặt tên gì thì đặt là student + số
  */
-document.getElementById("btn__coordinates").onclick = function() {
-    //Đầu vào
-    var student__1 = "Khánh";
-    var student__2 = "Huy";
-    var student__3 = "Bình";
-    var A;
-    var B;
-    var C;
-    var D;
-    var xA = 1;
-    var yA = 2;
-    var xB = 5;
-    var yB = 3;
-    var xC = 4;
-    var yC = 2;
-    var xD = 6;
-    var yD = 4;
-    //Xử lý
-    A = Math.floor(Math.sqrt(Math.pow(xD - xA, 2) + Math.pow(yD - yA, 2)));
-    B = Math.floor(Math.sqrt(Math.pow(xD - xB, 2) + Math.pow(yD - yB, 2)));
-    C = Math.floor(Math.sqrt(Math.pow(xD - xC, 2) + Math.pow(yD - yC, 2)));
-    D = Math.floor(Math.sqrt(Math.pow(xD - xD, 2) + Math.pow(yD - yD, 2)));
-    if (D + A > B && D + A > C) {
-        var sum = "The student farthest from the school is:" + student__1 + "<br> " + " With coordinates: " + A;
-    } else if (D + B > A && D + B > C) {
-        sum = "The student farthest from the school is:" + student__2 + "with coordinates:" + B;
+document.getElementById("btn__Coordinates").onclick = function() {
+    var School__xD = document.getElementById("xD").value * 1;
+    var School__yD = document.getElementById("yD").value * 1;
+
+    var student__1__xA = document.getElementById("xA").value * 1;
+    var sutdent__1__yA = document.getElementById("yA").value * 1;
+
+    var studen__2__xB = document.getElementById("xB").value * 1;
+    var studen__2__yB = document.getElementById("yB").value * 1;
+
+    var studen__3__xC = document.getElementById("xC").value * 1;
+    var studen__3__yC = document.getElementById("yC").value * 1;
+
+    var sum = Math.sqrt(Math.pow(School__xD - student__1__xA, 2) + Math.pow(School__yD - sutdent__1__yA, 2));
+    sum__1 = Math.sqrt(Math.pow(School__xD - studen__2__xB, 2) + Math.pow(School__yD - studen__2__yB, 2));
+    sum__2 = Math.sqrt(Math.pow(School__xD - studen__3__xC, 2) + Math.pow(School__yD - studen__3__yC, 2));
+    if (sum > sum__1 && sum > sum__2) {
+        var result = "Student 1 farthest from shool";
+    } else if (sum__1 > sum && sum__1 > sum__2) {
+        var result = "Student 2 farthest from shool";
     } else {
-        sum = "The student farthest from the school is:" + student__3 + "with coordinates:" + C;
+        var result = "Student 3 farthest from shool";
     }
-    //Đầu ra
-    var result = "coordinates of the shool are: " + D + "<hr>" + "The coordinates of Student named Khánh are: " + A + "<hr>" + "The coordinates of Student named Bình are: " + C + "<hr>" + "The coordinates of Student named Huy are: " + B + "<hr>" + sum;
-    document.getElementById("footer__coordinates").innerHTML = result;
+    document.getElementById("footer__Coordinates").innerHTML = result;
 }
